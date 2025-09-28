@@ -1,0 +1,37 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.so
+*.dylib
+*.egg-info/
+.eggs/
+*.log
+
+# Virtualenv
+.venv/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Environment
+.env
+.env.*
+
+# Data
+/data/
+*.db
+
+# Pytest
+.pytest_cache/
+coverage.xml
+htmlcov/
+
+# Docker
+*.pid
+
+# Misc
+.scribe_cache/

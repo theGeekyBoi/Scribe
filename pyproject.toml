@@ -1,22 +1,34 @@
-﻿[build-system]
+[build-system]
 requires = ["setuptools>=65", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "scribe"
-version = "0.1.0"
-description = "Scribe Discord bot"
+version = "0.2.0"
+description = "Scribe Discord translation bot"
 readme = "README.md"
 requires-python = ">=3.11"
+authors = [{name = "Scribe Maintainers", email = "opensource@example.com"}]
 dependencies = [
     "discord.py>=2.4.0,<3",
-    "python-dotenv>=1.0",
+    "httpx>=0.27.0",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "SQLAlchemy>=2.0",
     "aiosqlite>=0.20",
+    "python-dotenv>=1.0",
+    "langdetect>=1.0.9",
+    "loguru>=0.7",
+    "typing-extensions>=4.7",
+    "uvloop>=0.19; sys_platform != 'win32'",
 ]
 
 [project.optional-dependencies]
 dev = [
     "pytest>=7.4,<8",
+    "black>=24.4",
+    "isort>=5.12",
+    "mypy>=1.10",
 ]
 
 [tool.black]
@@ -26,3 +38,18 @@ target-version = ["py311"]
 [tool.isort]
 profile = "black"
 line_length = 100
+
+[tool.mypy]
+python_version = "3.11"
+warn_unused_configs = true
+warn_return_any = true
+warn_unused_ignores = true
+strict_optional = true
+check_untyped_defs = true
+show_error_codes = true
+plugins = []
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra --strict-markers --disable-warnings"
+testpaths = ["tests"]

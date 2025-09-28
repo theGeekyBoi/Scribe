@@ -1,0 +1,29 @@
+﻿services:
+  scribe:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+    restart: unless-stopped
+    command: ["python", "main.py"]
+    # Uncomment to expose metrics via custom HTTP endpoint
+    # ports:
+    #   - "8000:8000"
+
+  # postgres:
+  #   image: postgres:16
+  #   environment:
+  #     POSTGRES_USER: scribe
+  #     POSTGRES_PASSWORD: scribe
+  #     POSTGRES_DB: scribe
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+  #   restart: unless-stopped
+
+  # redis:
+  #   image: redis:7
+  #   restart: unless-stopped
+
+# volumes:
+#   pgdata:
