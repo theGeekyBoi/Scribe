@@ -27,6 +27,10 @@ class BotContext:
 class ScribeBot(discord.Client):
     """Discord client implementation for Scribe."""
 
+    def add_listener(self, func, name: str | None = None) -> None:
+        super().add_listener(func, name)
+
+
     def __init__(self, *, intents: discord.Intents, settings: Any) -> None:
         super().__init__(intents=intents)
         if not settings.discord_token:
